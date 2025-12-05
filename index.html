@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алиса Прохоренкова | Самый лучший человек</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-color: #ff9ebb;
+            --secondary-color: #ff6b9d;
+            --accent-color: #ff4081;
+            --light-color: #fff5f9;
+            --dark-color: #d81b60;
+            --text-color: #5d4037;
+            --shadow: 0 5px 15px rgba(255, 107, 157, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: #fffafc;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: white;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .hero-text .title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .hero-text p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .poem-line {
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .poem-line::before {
+            content: '❤️';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
+        }
+        
+        .poem-line:nth-child(even)::before {
+            content: '✨';
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 157, 0.3);
+        }
+        
+        .hero-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            border: 5px solid #ffe6f0;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: #fffafc;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background-color: #fffafc;
+            transition: var(--transition);
+            border: 1px solid #ffd1e0;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .gallery-img {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .gallery-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-img img {
+            transform: scale(1.1);
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+            border: 5px solid #ffe6f0;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .about-text p::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .skills {
+            margin-top: 40px;
+            border-top: 2px solid #ffd1e0;
+            padding-top: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #ffd1e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), var(--dark-color));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .copyright {
+            color: #ffd1e0;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(216, 27, 96, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            background-color: #fffafc;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            border: 5px solid #ffe6f0;
+        }
+        
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        
+        .modal-info {
+            padding: 25px;
+        }
+        
+        .modal-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 107, 157, 0.8);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .close-modal:hover {
+            background-color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content, .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            nav a {
+                padding: 8px 15px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .poem-line, .hero-text p {
+                font-size: 1.05rem;
+                padding-left: 18px;
+            }
+            
+            .about-text p {
+                padding-left: 20px;
+                font-size: 1.05rem;
+            }
+            
+            .about-text p::before {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-img {
+                height: 250px;
+            }
+            
+            .poem-line, .hero-text p {
+                font-size: 1rem;
+                padding-left: 15px;
+            }
+            
+            .poem-line::before {
+                font-size: 0.9rem;
+            }
+            
+            .about-text p {
+                font-size: 1rem;
+                padding-left: 18px;
+            }
+            
+            .about-text h3 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heart"></i>
+                    Алиса Прохоренкова
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#gallery">Галерея</a></li>
+                        <li><a href="#about">Обо мне</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Алиса Прохоренкова</h1>
+                    <div class="title">Самая лучшая девочка в мире</div>
+                    
+                    <div class="poem-line">Алиса, солнышка лучик золотой,</div>
+                    <div class="poem-line">Твой смех звучит, как колокольчик голубой.</div>
+                    <div class="poem-line">Ты красотой своею мир вокруг светишь,</div>
+                    <div class="poem-line">Везде успех тебя по праву ждёт и слышишь?</div>
+                    
+                    <div class="poem-line">Ты не просто хороша — ты светла и мила,</div>
+                    <div class="poem-line">Как узор, что утро на стекле навела.</div>
+                    <div class="poem-line">Помни, в трудный час, какая ты сильная,</div>
+                    <div class="poem-line">И улыбкой, словно солнышком, ты греешь всегда!</div>
+                    
+                    <button class="cta-button" id="viewGallery">Посмотреть мои фото</button>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Алиса Похоренкова" id="mainPhoto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Её фотографии</h2>
+                <p>прости если выбрал плохие</p>
+            </div>
+            <div class="gallery" id="photoGallery">
+                <!-- 6 фото в галерее (слоты 1-6) -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-content">
+                <!-- 7-я фото в разделе "Обо мне" -->
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Алиса Похоренкова">
+                </div>
+                <div class="about-text">
+                    <h3>Немного об Алисе</h3>
+                    
+                    <p>Алиса приносит с собой ощущение солнечного утра.</p>
+                    <p>В её смехе слышится звон самого чистого родника.</p>
+                    <p>Она смотрит на мир с внимательностью и добрым удивлением.</p>
+                    <p>Рядом с ней самые простые моменты становятся тёплыми и памятными.</p>
+                    <p>В её присутствии хочется стать немного лучше, добрее, светлее.</p>
+                    <p>Она обладает редким даром — видеть прекрасное в обыденном.</p>
+                    <p>Её искренность — это как самый честный и тёплый свет.</p>
+                    <p>Мир, в котором есть такая душа, кажется гостеприимнее и добрее.</p>
+                    <p>С ней тишина становится уютной, а разговор — наполненным смыслом.</p>
+                    <p>Она напоминает о том, что в жизни есть место настоящему чуду.</p>
+                    
+                    <div class="skills">
+                        <h4>Мои суперсилы</h4>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Создавать хорошее настроение</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Поддерживать друзей</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Любовь к игрушкам</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Красота</span>
+                                <span>100%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-heart"></i>
+                    Алиса Прохоренкова
+                </div>
+                <p>Самая лучшая девочка в мире</p>
+                <div class="copyright">
+                    &copy; 2025 Алиса Прохоренкова. Все права на улыбки защищены.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Image View -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <img src="" alt="" class="modal-img" id="modalImage">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Данные для сайта - распределение 8 фото по существующим местам:
+        // 1. Главное фото (верхний большой блок)
+        // 2-7. 6 фото в галерее
+        // 8. Фото в разделе "Обо мне"
+        
+        const personData = {
+            name: "Алиса Похоренкова",
+            title: "Самая лучшая девочка в мире",
+            galleryPhotos: [
+                {
+                    id: 1,
+                    url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+                    title: "Задумчивый взгляд",
+                    description: "Моменты, когда погружаешься в свои мысли и мечты"
+                },
+                {
+                    id: 2,
+                    url: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+                    title: "Сияющая улыбка",
+                    description: "Самый искренний смех, который освещает всё вокруг"
+                },
+                {
+                    id: 3,
+                    url: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+                    title: "Нежный образ",
+                    description: "Особенные моменты, когда чувствуешь себя по-настоящему прекрасной"
+                },
+                {
+                    id: 4,
+                    url: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1727&q=80",
+                    title: "Весеннее настроение",
+                    description: "Когда в душе расцветают цветы и приходит обновление"
+                },
+                {
+                    id: 5,
+                    url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80",
+                    title: "Тёплый вечер",
+                    description: "Уютные моменты, наполненные спокойствием и гармонией"
+                },
+                {
+                    id: 6,
+                    url: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1067&q=80",
+                    title: "Мечты о будущем",
+                    description: "Взгляд, полный надежд и светлых ожиданий"
+                }
+            ],
+            mainPhotos: [
+                {
+                    url: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+                    title: "Лучшая версия себя",
+                    description: "Тот самый образ, когда чувствуешь себя абсолютно счастливой"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+                    title: "Задумчивый взгляд",
+                    description: "Моменты, когда погружаешься в свои мысли и мечты"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+                    title: "Сияющая улыбка",
+                    description: "Самый искренний смех, который освещает всё вокруг"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
+                    title: "Нежный образ",
+                    description: "Особенные моменты, когда чувствуешь себя по-настоящему прекрасной"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1727&q=80",
+                    title: "Весеннее настроение",
+                    description: "Когда в душе расцветают цветы и приходит обновление"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80",
+                    title: "Тёплый вечер",
+                    description: "Уютные моменты, наполненные спокойствием и гармонией"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80",
+                    title: "Радостные мгновения",
+                    description: "Такие моменты делают жизнь по-настоящему счастливой"
+                },
+                {
+                    url: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1067&q=80",
+                    title: "Мечты о будущем",
+                    description: "Взгляд, полный надежд и светлых ожиданий"
+                }
+            ]
+        };
+
+        // Инициализация сайта
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка 6 фото в галерею
+            const galleryContainer = document.getElementById('photoGallery');
+            
+            personData.galleryPhotos.forEach(photo => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `
+                    <div class="gallery-img">
+                        <img src="${photo.url}" alt="${photo.title}" loading="lazy">
+                    </div>
+                `;
+                
+                galleryItem.addEventListener('click', () => {
+                    openModal(photo);
+                });
+                
+                galleryContainer.appendChild(galleryItem);
+            });
+            
+            // Кнопка "Посмотреть мои фото"
+            const viewGalleryBtn = document.getElementById('viewGallery');
+            viewGalleryBtn.addEventListener('click', function() {
+                document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Навигация по странице
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#') {
+                        document.querySelector(targetId).scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            // Анимация навыков при скролле
+            function animateSkills() {
+                const skillBars = document.querySelectorAll('.skill-progress');
+                
+                skillBars.forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                });
+            }
+            
+            // Открытие модального окна
+            function openModal(photo) {
+                const modal = document.getElementById('imageModal');
+                const modalImage = document.getElementById('modalImage');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalDescription = document.getElementById('modalDescription');
+                
+                modalImage.src = photo.url;
+                modalTitle.textContent = photo.title;
+                modalDescription.textContent = photo.description;
+                
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            // Закрытие модального окна
+            const closeModalBtn = document.getElementById('closeModal');
+            const modal = document.getElementById('imageModal');
+            
+            closeModalBtn.addEventListener('click', function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Закрытие модального окна при клике вне его
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Анимация при скролле
+            function handleScroll() {
+                // Анимация навыков
+                const aboutSection = document.querySelector('.about-section');
+                const aboutSectionPosition = aboutSection.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (aboutSectionPosition < screenPosition) {
+                    animateSkills();
+                }
+            }
+            
+            window.addEventListener('scroll', handleScroll);
+            
+            // Инициализация анимации при загрузке
+            setTimeout(animateSkills, 500);
+            
+            // Смена главного фото каждые 10 секунд
+            const mainPhoto = document.getElementById('mainPhoto');
+            let currentPhotoIndex = 0;
+            
+            function changeMainPhoto() {
+                currentPhotoIndex = (currentPhotoIndex + 1) % personData.mainPhotos.length;
+                mainPhoto.src = personData.mainPhotos[currentPhotoIndex].url;
+                
+                // Анимация
+                mainPhoto.style.opacity = '0.7';
+                setTimeout(() => {
+                    mainPhoto.style.opacity = '1';
+                }, 300);
+            }
+            
+            // Автоматическая смена фото каждые 10 секунд
+            setInterval(changeMainPhoto, 10000);
+            
+            // Добавление эффекта параллакса для секций
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const heroImage = document.querySelector('.hero-image');
+                const aboutImage = document.querySelector('.about-image');
+                
+                heroImage.style.transform = `translateY(${scrolled * 0.05}px)`;
+                aboutImage.style.transform = `translateY(${scrolled * 0.03}px)`;
+            });
+            
+            // Добавление случайных сердечек на страницу
+            function createHeart() {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤️';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '-50px';
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+                heart.style.opacity = '0.7';
+                heart.style.zIndex = '9999';
+                heart.style.pointerEvents = 'none';
+                heart.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                
+                document.body.appendChild(heart);
+                
+                // Удаление сердечка после анимации
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+            
+            // Добавление CSS анимации для падающих сердечек
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fall {
+                    to {
+                        transform: translateY(100vh) rotate(360deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Создание случайных сердечек каждые 500мс
+            setInterval(createHeart, 500);
+        });
+    </script>
+</body>
+</html>
